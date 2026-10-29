@@ -1,0 +1,7 @@
+node_modules/
+dist/
+.next/
+next-env.d.ts
+
+# materiais originais (PDFs de 60-80 MB); versões comprimidas ficam em public/apresentacoes/
+docs/

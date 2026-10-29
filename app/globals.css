@@ -1,0 +1,172 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+    --font-heading: var(--font-sans);
+    --font-sans: var(--font-sans);
+    --font-label: var(--font-saira);
+    /* Cores da marca como utilitários Tailwind: bg-navy, text-sun, ... */
+    --color-navy: var(--navy);
+    --color-sky: var(--sky);
+    --color-royal: var(--royal);
+    --color-sun: var(--sun);
+    --color-brand-red: var(--red);
+    --color-pink: var(--pink);
+    --color-paper: var(--paper);
+    --color-ring: var(--ring);
+    --color-input: var(--input);
+    --color-border: var(--border);
+    --color-destructive: var(--destructive);
+    --color-accent-foreground: var(--accent-foreground);
+    --color-accent: var(--accent);
+    --color-muted-foreground: var(--muted-foreground);
+    --color-muted: var(--muted);
+    --color-secondary-foreground: var(--secondary-foreground);
+    --color-secondary: var(--secondary);
+    --color-primary-foreground: var(--primary-foreground);
+    --color-primary: var(--primary);
+    --color-popover-foreground: var(--popover-foreground);
+    --color-popover: var(--popover);
+    --color-card-foreground: var(--card-foreground);
+    --color-card: var(--card);
+    --color-foreground: var(--foreground);
+    --color-background: var(--background);
+    --radius-sm: calc(var(--radius) * 0.6);
+    --radius-md: calc(var(--radius) * 0.8);
+    --radius-lg: var(--radius);
+    --radius-xl: calc(var(--radius) * 1.4);
+    --radius-2xl: calc(var(--radius) * 1.8);
+    --radius-3xl: calc(var(--radius) * 2.2);
+    --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+:root {
+    /* Identidade AMPARO */
+    --navy: #050a30;
+    --sky: #6c93dc;
+    --sky-line: rgba(255, 255, 255, .14);
+    --royal: #2f4fba;
+    --sun: #f9c300;
+    --red: #d04040;
+    --pink: #e6339a;
+    --paper: #f7f6f2;
+    --ink: #050a30;
+    --text-muted: #3b4363;
+    --card-radius: 18px;
+    --font: var(--font-sans), system-ui, sans-serif;
+    --font-label: var(--font-saira), 'Arial Narrow', sans-serif;
+
+    /* Tema shadcn mapeado para a marca */
+    --background: var(--paper);
+    --foreground: var(--navy);
+    --card: #ffffff;
+    --card-foreground: var(--navy);
+    --popover: #ffffff;
+    --popover-foreground: var(--navy);
+    --primary: var(--navy);
+    --primary-foreground: #ffffff;
+    --secondary: var(--sun);
+    --secondary-foreground: var(--navy);
+    --muted: #e7ecfa;
+    --muted-foreground: var(--text-muted);
+    --accent: var(--sky);
+    --accent-foreground: var(--navy);
+    --destructive: var(--red);
+    --border: rgba(5, 10, 48, .14);
+    --input: rgba(5, 10, 48, .2);
+    --ring: var(--royal);
+    --radius: 0.75rem;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  html {
+    @apply font-sans;
+  }
+}
+
+/* ---------- Estilos da página (o resto está em Tailwind nos componentes) ---------- */
+
+html { scroll-behavior: smooth; scroll-padding-top: 72px; }
+body { font-weight: 300; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+:focus-visible { outline: 3px solid var(--sun); outline-offset: 3px; border-radius: 6px; }
+
+.container { width: min(1200px, 100% - 32px); max-width: none; margin-inline: auto; } /* sobrescreve o .container do Tailwind */
+.skip { position: absolute; left: 16px; top: -60px; z-index: 60; background: var(--navy); color: #fff; padding: 10px 16px; border-radius: 8px; }
+.skip:focus { top: 16px; }
+
+/* Régua de timecode: marcas grandes a cada 120px, pequenas a cada 12px */
+.ruler {
+  border-bottom: 1px solid rgba(255, 255, 255, .3);
+  background:
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, .5) 0 1px, transparent 1px 120px) top / 100% 100% no-repeat,
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, .28) 0 1px, transparent 1px 12px) bottom / 100% 45% no-repeat;
+}
+
+/* Quadriculado de planta técnica (capas das apresentações) */
+.blueprint {
+  background-image:
+    linear-gradient(var(--sky-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--sky-line) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+.blueprint-light {
+  background-image:
+    linear-gradient(rgba(47, 79, 186, .08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(47, 79, 186, .08) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+/* Faixa de serviços rolando */
+.marquee { animation: marquee 38s linear infinite; }
+.marquee:hover { animation-play-state: paused; }
+@keyframes marquee { to { transform: translateX(-50%); } }
+
+/* Desenho técnico do stand */
+.stand path { fill: none; stroke: var(--navy); stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; }
+.stand .fill-floor { fill: rgba(255, 255, 255, .35); }
+.stand .fill-wall { fill: #fff; }
+.stand .fill-wall2 { fill: #e7ecfa; }
+.stand .fill-accent { fill: var(--royal); }
+.dims path { fill: none; stroke: var(--navy); stroke-width: 1; opacity: .55; }
+.dims text { font: 600 13px var(--font-label); letter-spacing: .08em; fill: var(--navy); opacity: .7; }
+
+/* Capas das apresentações em leque */
+.deck-stack img {
+  position: absolute; left: 14%; top: 18%; width: 72%;
+  border-radius: 8px;
+  box-shadow: 0 14px 34px rgba(5, 10, 48, .22);
+  transition: transform .45s cubic-bezier(.2, .7, .2, 1);
+}
+.deck-stack img:nth-child(1) { transform: rotate(-7deg) translate(-9%, -2%); }
+.deck-stack img:nth-child(2) { transform: rotate(6deg) translate(9%, -4%); }
+.deck-stack:hover img:nth-child(1), .deck-stack:focus-visible img:nth-child(1) { transform: rotate(-11deg) translate(-17%, -5%); }
+.deck-stack:hover img:nth-child(2), .deck-stack:focus-visible img:nth-child(2) { transform: rotate(10deg) translate(17%, -7%); }
+.deck-stack:hover img:nth-child(3), .deck-stack:focus-visible img:nth-child(3) { transform: translateY(-4%) scale(1.03); }
+
+/* Entrada suave ao rolar (CSS nativo; navegadores sem suporte mostram tudo direto) */
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    .reveal { animation: reveal linear both; animation-timeline: view(); animation-range: entry 0% entry 60%; }
+    @keyframes reveal { from { opacity: 0; transform: translateY(40px); } }
+    .stand-drawing .stand path { stroke-dasharray: 900; animation: draw linear both; animation-timeline: view(); animation-range: entry 10% cover 45%; }
+    @keyframes draw { from { stroke-dashoffset: 900; } }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
+
+/* Entrada do hero */
+.hero-rise { animation: rise .8s cubic-bezier(.2, .7, .2, 1) both; }
+@keyframes rise { from { opacity: 0; transform: translateY(28px); } }
