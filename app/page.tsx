@@ -210,7 +210,7 @@ export default function Home() {
               <h2 id="contact-title" className="mt-6 max-w-[17ch] text-[clamp(2.25rem,1.3rem+4vw,5rem)] leading-[1.02] font-semibold tracking-[-0.03em] text-balance">
                 Vamos transformar sua próxima ideia em uma grande experiência?
               </h2>
-              <p className="mt-6 max-w-md text-lg text-white/75">Escolha a unidade mais próxima e fale direto com a nossa equipe.</p>
+              <p className="mt-6 max-w-md text-lg text-white/75">Fale direto com a nossa equipe.</p>
             </div>
 
             <ul className="mt-14 border-b border-white/15">

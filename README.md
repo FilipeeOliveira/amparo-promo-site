@@ -12,7 +12,7 @@ npm run build   # gera a pasta dist/
 
 ## Onde editar
 
-- `site.config.ts`: WhatsApp (RO e AM), @ do Instagram, e-mail, domínio e o vídeo/cases do showreel.
+- `site.config.ts`: WhatsApp, @ do Instagram, e-mail, domínio e o vídeo/cases do showreel.
 - `app/page.tsx`: textos, serviços, números, apresentações e contatos (seções 01–03 e rodapé).
 - `components/hero.tsx`: hero com vídeo (adaptado do bloco Shadcn Space `hero-03`), timecode e REC.
 - `components/site-header.tsx`: cabeçalho fixo com menu (adaptado do navbar do `hero-03`).
